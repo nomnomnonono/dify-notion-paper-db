@@ -1,0 +1,725 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: 論文DB
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/openai:0.0.7@11ec0b1909200f62b6ebf2cec1da981a9071d11c1ee0e2ef332ce89bcffa2544
+kind: app
+version: 0.3.1
+workflow:
+  conversation_variables: []
+  environment_variables:
+  - description: ''
+    id: 7a6dec31-7913-4008-bc15-ea284e3a0246
+    name: NOTION_VERSION
+    selector:
+    - env
+    - NOTION_VERSION
+    value: '2022-06-28'
+    value_type: string
+  - description: ''
+    id: c01995f8-0507-440a-bc31-42c16c2f1e33
+    name: NOTION_INTEGRATION_SECRET_KEY
+    selector:
+    - env
+    - NOTION_INTEGRATION_SECRET_KEY
+    value: ''
+    value_type: secret
+  - description: ''
+    id: 9470594f-b169-40d6-9385-f126dbf4d607
+    name: NOTION_DATABASE_ID
+    selector:
+    - env
+    - NOTION_DATABASE_ID
+    value: ''
+    value_type: string
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: http-request
+      id: 1755570000196-source-1755571438801-target
+      source: '1755570000196'
+      sourceHandle: source
+      target: '1755571438801'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: http-request
+        targetType: code
+      id: 1755571438801-source-1755571877261-target
+      source: '1755571438801'
+      sourceHandle: source
+      target: '1755571877261'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: http-request
+        targetType: llm
+      id: 1755571438801-source-1755571556316-target
+      source: '1755571438801'
+      sourceHandle: source
+      target: '1755571556316'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: template-transform
+      id: 1755571556316-source-1755572781338-target
+      source: '1755571556316'
+      sourceHandle: source
+      target: '1755572781338'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: template-transform
+      id: 1755571877261-source-1755572781338-target
+      source: '1755571877261'
+      sourceHandle: source
+      target: '1755572781338'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: template-transform
+        targetType: http-request
+      id: 1755572781338-source-1755573462455-target
+      source: '1755572781338'
+      sourceHandle: source
+      target: '1755573462455'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: http-request
+        targetType: code
+      id: 1755573462455-source-1755574296930-target
+      source: '1755573462455'
+      sourceHandle: source
+      target: '1755574296930'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: http-request
+        targetType: end
+      id: 17555744559970-source-1755574513530-target
+      source: '17555744559970'
+      sourceHandle: source
+      target: '1755574513530'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: template-transform
+        targetType: http-request
+      id: 1755574533697-source-17555744559970-target
+      source: '1755574533697'
+      sourceHandle: source
+      target: '17555744559970'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: http-request
+        targetType: template-transform
+      id: 1755573462455-source-1755574533697-target
+      source: '1755573462455'
+      sourceHandle: source
+      target: '1755574533697'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: http-request
+      id: 1755574296930-source-17555744559970-target
+      source: '1755574296930'
+      sourceHandle: source
+      target: '17555744559970'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: http-request
+        targetType: llm
+      id: 1755571438801-source-1755575828910-target
+      source: '1755571438801'
+      sourceHandle: source
+      target: '1755575828910'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1755575828910-source-1755576348867-target
+      source: '1755575828910'
+      sourceHandle: source
+      target: '1755576348867'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: template-transform
+      id: 1755576348867-source-1755572781338-target
+      source: '1755576348867'
+      sourceHandle: source
+      target: '1755572781338'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: 開始
+        type: start
+        variables:
+        - label: url
+          max_length: 256
+          options: []
+          required: true
+          type: text-input
+          variable: url
+      height: 90
+      id: '1755570000196'
+      position:
+        x: 78.75760354488176
+        y: 282
+      positionAbsolute:
+        x: 78.75760354488176
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data: []
+          type: none
+        desc: ''
+        headers: ''
+        method: get
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: 論文内容取得
+        type: http-request
+        url: https://r.jina.ai/{{#1755570000196.url#}}
+        variables: []
+      height: 126
+      id: '1755571438801'
+      position:
+        x: 384
+        y: 282
+      positionAbsolute:
+        x: 384
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1755571438801'
+          - body
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o-mini
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: 117d8d82-5f86-456d-b181-2b49d6776bff
+          role: system
+          text: 'Summarize the following research paper. - What is it about? Provide
+            an overview of the paper and its purpose.
+
+            How does it improve upon prior research?
+
+            Explain how this research enhances or improves upon previous studies.
+
+            What is the core technology or method?
+
+            Describe the main technology or method introduced or improved in the paper.
+
+            How was its effectiveness tested?
+
+            Detail the methods used to test the effectiveness of the new or improved
+            technology/method.
+
+            Are there any points of discussion?
+
+            Highlight any discussion points, such as limitations, implications, or
+            controversies.
+
+            -What is the next paper to read?
+
+            Suggest the next paper to read from the cited references, providing the
+            citation number and paper title.
+
+            Please make it Japanese.
+
+
+            {{#context#}}'
+        selected: false
+        title: 論文要約
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1755571556316'
+      position:
+        x: 852.6101814528836
+        y: 282
+      positionAbsolute:
+        x: 852.6101814528836
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "\ndef main(text: str) -> dict:\n    title = text.split(\"\\n\\n\")[0].replace(\"\
+          Title: \", \"\")\n    return {\n        \"result\": title\n    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 論文タイトル抽出
+        type: code
+        variables:
+        - value_selector:
+          - '1755571438801'
+          - body
+          value_type: string
+          variable: text
+      height: 54
+      id: '1755571877261'
+      position:
+        x: 852.6101814528836
+        y: 144.24706862576215
+      positionAbsolute:
+        x: 852.6101814528836
+        y: 144.24706862576215
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        selected: false
+        template: "{\n    \"parent\": { \"database_id\": \"{{ NOTION_DATABASE_ID }}\"\
+          \ },\n    \"properties\": {\n      \"タイトル\": {\n        \"title\": [\n \
+          \         {\n            \"text\": {\n              \"content\": \"{{ title\
+          \ }}\"\n            }\n          }\n        ]\n      },\n      \"URL\":\
+          \ {\n        \"url\":  \"{{ url }}\"\n      },\n      \"カテゴリ\": {\n    \
+          \    \"multi_select\": [\n            {\n                \"name\": \"{{\
+          \ cat1 }}\"\n            },\n            {\n                \"name\": \"\
+          {{ cat2 }}\"\n            },\n            {\n                \"name\": \"\
+          {{ cat3 }}\"\n            }\n        ]\n      }\n    }\n  }"
+        title: リクエストボディ作成
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1755571877261'
+          - result
+          value_type: string
+          variable: title
+        - value_selector:
+          - '1755570000196'
+          - url
+          value_type: string
+          variable: url
+        - value_selector:
+          - '1755576348867'
+          - cat1
+          value_type: string
+          variable: cat1
+        - value_selector:
+          - '1755576348867'
+          - cat2
+          value_type: string
+          variable: cat2
+        - value_selector:
+          - '1755576348867'
+          - cat3
+          value_type: string
+          variable: cat3
+        - value_selector:
+          - env
+          - NOTION_DATABASE_ID
+          value_type: string
+          variable: NOTION_DATABASE_ID
+      height: 54
+      id: '1755572781338'
+      position:
+        x: 1288.8299782279255
+        y: 282
+      positionAbsolute:
+        x: 1288.8299782279255
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        authorization:
+          config:
+            api_key: '{{#env.NOTION_INTEGRATION_SECRET_KEY#}}'
+            type: bearer
+          type: api-key
+        body:
+          data:
+          - id: key-value-354
+            key: ''
+            type: text
+            value: '{{#1755572781338.output#}}'
+          type: json
+        desc: ''
+        headers: Notion-Version:{{#env.NOTION_VERSION#}}
+        method: post
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: DBにレコード追加
+        type: http-request
+        url: https://api.notion.com/v1/pages
+        variables: []
+      height: 139
+      id: '1755573462455'
+      position:
+        x: 1606.7526351469442
+        y: 282
+      positionAbsolute:
+        x: 1606.7526351469442
+        y: 282
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import json\n\ndef main(raw: str) -> dict:\n    body = json.loads(raw)\n\
+          \    print(body)\n    return {\n        \"page_id\": body[\"id\"]\n    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          page_id:
+            children: null
+            type: string
+        selected: false
+        title: ページID取得
+        type: code
+        variables:
+        - value_selector:
+          - '1755573462455'
+          - body
+          value_type: string
+          variable: raw
+      height: 54
+      id: '1755574296930'
+      position:
+        x: 1925.6883013802317
+        y: 282
+      positionAbsolute:
+        x: 1925.6883013802317
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        authorization:
+          config:
+            api_key: '{{#env.NOTION_INTEGRATION_SECRET_KEY#}}'
+            type: bearer
+          type: api-key
+        body:
+          data:
+          - id: key-value-354
+            key: ''
+            type: text
+            value: '{{#1755574533697.output#}}'
+          type: json
+        desc: ''
+        headers: Notion-Version:{{#env.NOTION_VERSION#}}
+        method: patch
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: レコードに論文要約記載
+        type: http-request
+        url: https://api.notion.com/v1/blocks/{{#1755574296930.page_id#}}/children
+        variables: []
+      height: 174
+      id: '17555744559970'
+      position:
+        x: 2250.5100036488493
+        y: 282
+      positionAbsolute:
+        x: 2250.5100036488493
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs: []
+        selected: false
+        title: 終了
+        type: end
+      height: 54
+      id: '1755574513530'
+      position:
+        x: 2554.065550357156
+        y: 282
+      positionAbsolute:
+        x: 2554.065550357156
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        selected: false
+        template: "{\n    \"children\": [\n        {\n            \"object\": \"block\"\
+          ,\n            \"type\": \"paragraph\",\n            \"paragraph\": {\n\
+          \                \"rich_text\": [\n                    {\n             \
+          \           \"type\": \"text\",\n                        \"text\": {\"content\"\
+          : \"{{ text }}\"}\n                    }\n                ]\n          \
+          \  }\n        }\n    ]\n}"
+        title: リクエストボディ作成 2
+        type: template-transform
+        variables:
+        - value_selector:
+          - env
+          - NOTION_DATABASE_ID
+          value_type: string
+          variable: NOTION_DATABASE_ID
+        - value_selector:
+          - '1755571556316'
+          - text
+          variable: text
+      height: 54
+      id: '1755574533697'
+      position:
+        x: 1925.6883013802317
+        y: 388.6687900063294
+      positionAbsolute:
+        x: 1925.6883013802317
+        y: 388.6687900063294
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1755571438801'
+          - body
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o-mini
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: 24fc3abf-a7e3-493c-9f42-74b1ada59a3c
+          role: system
+          text: "Categorize the following research paper.\n\nConditions:\n- Provide\
+            \ exactly 3 categories\n- Category names should be short and concise (1–5\
+            \ words)\n- Prefer commonly used abbreviations when applicable (e.g.,\
+            \ \"Natural Language Processing\" -> \"NLP\")\n- Output strictly as raw\
+            \ JSON only. Do NOT include markdown, backticks, or explanations.\n\n\
+            Example output:\n{\n  \"categories\": [\"NLP\", \"LLM\", \"Transformers\"\
+            ]\n}\n\n\n{{#context#}}"
+        selected: false
+        title: 論文カテゴライズ
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1755575828910'
+      position:
+        x: 697.8017419675068
+        y: 441.0756022610779
+      positionAbsolute:
+        x: 697.8017419675068
+        y: 441.0756022610779
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import json\n\ndef main(text: str) -> dict:\n    try:\n        output\
+          \ = json.loads(text)[\"categories\"]\n        return {\n            \"cat1\"\
+          : output[0],\n            \"cat2\": output[1],\n            \"cat3\": output[2]\n\
+          \        }\n    except Exception as e:\n        print(e)\n        return\
+          \ None\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          cat1:
+            children: null
+            type: string
+          cat2:
+            children: null
+            type: string
+          cat3:
+            children: null
+            type: string
+        selected: false
+        title: カテゴリ取得
+        type: code
+        variables:
+        - value_selector:
+          - '1755575828910'
+          - text
+          value_type: string
+          variable: text
+      height: 54
+      id: '1755576348867'
+      position:
+        x: 988.9151086298955
+        y: 441.0756022610779
+      positionAbsolute:
+        x: 988.9151086298955
+        y: 441.0756022610779
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: -454.6497070167618
+      y: -14.901677000742438
+      zoom: 0.8706072714030398
